@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <title>注册</title>
+    <link rel="stylesheet" href="/static/js/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/project.css">
+    <style>
+
+        .tr_box {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: inline-block;
+            border-radius: 30px;
+            background: white;
+            width: 600px;
+            height: 550px;
+        }
+
+        .tr_box>h1 {
+            display: inline-block;
+            margin-top: 0;
+            height: 50px;
+            width: 500px;
+            border-bottom: black 1px solid;
+            margin-left: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .tr_box>div {
+            display: inline-block;
+            height: 350px;
+            width: 500px;
+            margin-left: 50px;
+            /* background-color: black; */
+        }
+
+        .tr_box>div>form>label {
+            width: 70px;
+            margin-top: 10px;
+            margin-left: 5px;
+            height: 5px;
+            color: black;
+            text-align: center;
+            font-weight: normal;
+            {#background-color:red;#}
+            letter-spacing:3px;
+        }
+        .tr_box>div>form>label>input{
+            margin-left:5px;
+        }
+
+    </style>
+    <script type="text/javascript">
+    $(document).ready(function (){
+        $('input[type=checkbox]').click(function(){
+            if ($("input[name='tags']:checked").length > 3) {
+                alert('最多选3个');
+                return false;
+            }
+        });
+    });
+</script>
+
+</head>
+
+<body>
+    <div class="tr_box">
+        <h1>用户注册</h1>
+        <div>
+            <form class="form-register" action={% url 'register' %} method="post">
+
+                {% if message %}
+                    <div
+                    style="width:500px;margin-top: 5px;background-color:rgb(252, 248, 227);color: rgb(138, 109, 59);height:20px;text-align: center;line-height:20px;">{{ message }}</div>
+                {% endif %}
+
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" id="exampleInputName2" placeholder="输入用户名/手机号/邮箱"
+                    style="width: 500px;margin-top: 15px;background-color:rgb(230,230,230);">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" id="exampleInputName2" placeholder="创建密码"
+                    style="width: 500px;margin-top: 20px;background-color:rgb(230,230,230);">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password2" class="form-control" id="exampleInputName2" placeholder="确认密码"
+                    style="width: 500px;margin-top: 20px;background-color:rgb(230,230,230);">
+                </div>
+                <h5 style="display: inline-block; height: 20px;line-height: 20px; ">您旅游经常去或者喜欢地区是(最多选三个):</h5>
+                <br>
+                <label for="RememberMe"><input name="tags" value="上海" type="checkbox" id="RememberMe">上海</label>
+                <label for="RememberMe"><input name="tags" value="云南" type="checkbox" id="RememberMe">云南</label>
+                <label for="RememberMe"><input name="tags" value="北京" type="checkbox" id="RememberMe">北京</label>
+                <label for="RememberMe"><input name="tags" value="台湾" type="checkbox" id="RememberMe">台湾</label>
+                <label for="RememberMe"><input name="tags" value="吉林" type="checkbox" id="RememberMe">吉林</label>
+                <label for="RememberMe"><input name="tags" value="四川" type="checkbox" id="RememberMe">四川</label>
+                <label for="RememberMe"><input name="tags" value="天津" type="checkbox" id="RememberMe">天津</label>
+                <label for="RememberMe"><input name="tags" value="宁夏" type="checkbox" id="RememberMe">宁夏</label>
+                <label for="RememberMe"><input name="tags" value="安徽" type="checkbox" id="RememberMe">安徽</label>
+                <label for="RememberMe"><input name="tags" value="山东" type="checkbox" id="RememberMe">山东</label>
+                <label for="RememberMe"><input name="tags" value="广东" type="checkbox" id="RememberMe">广东</label>
+                <label for="RememberMe"><input name="tags" value="广西" type="checkbox" id="RememberMe">广西</label>
+                <label for="RememberMe"><input name="tags" value="新疆" type="checkbox" id="RememberMe">新疆</label>
+                <label for="RememberMe"><input name="tags" value="江苏" type="checkbox" id="RememberMe">江苏</label>
+                <label for="RememberMe"><input name="tags" value="江西" type="checkbox" id="RememberMe">江西</label>
+                <label for="RememberMe"><input name="tags" value="河北" type="checkbox" id="RememberMe">河北</label>
+                <label for="RememberMe"><input name="tags" value="河南" type="checkbox" id="RememberMe">河南</label>
+                <label for="RememberMe"><input name="tags" value="浙江" type="checkbox" id="RememberMe">浙江</label>
+                <label for="RememberMe"><input name="tags" value="海南" type="checkbox" id="RememberMe">海南</label>
+                <label for="RememberMe"><input name="tags" value="湖北" type="checkbox" id="RememberMe">湖北</label>
+                <label for="RememberMe"><input name="tags" value="湖南" type="checkbox" id="RememberMe">湖南</label>
+                <label for="RememberMe"><input name="tags" value="澳门" type="checkbox" id="RememberMe">澳门</label>
+                <label for="RememberMe"><input name="tags" value="甘肃" type="checkbox" id="RememberMe">甘肃</label>
+                <label for="RememberMe"><input name="tags" value="福建" type="checkbox" id="RememberMe">福建</label>
+                <label for="RememberMe"><input name="tags" value="西藏" type="checkbox" id="RememberMe">西藏</label>
+                <label for="RememberMe"><input name="tags" value="贵州" type="checkbox" id="RememberMe">贵州</label>
+                <label for="RememberMe"><input name="tags" value="香港" type="checkbox" id="RememberMe">香港</label>
+                <label for="RememberMe"><input name="tags" value="山西" type="checkbox" id="RememberMe">山西</label>
+                <label for="RememberMe"><input name="tags" value="青海" type="checkbox" id="RememberMe">青海</label>
+                <label for="RememberMe"><input name="tags" value="辽宁" type="checkbox" id="RememberMe">辽宁</label>
+                <label for="RememberMe"><input name="tags" value="陕西" type="checkbox" id="RememberMe">陕西</label>
+                <label for="RememberMe"><input name="tags" value="重庆" type="checkbox" id="RememberMe">重庆</label>
+                <label for="RememberMe" style="margin-left:13px" id="RememberMe"><input name="tags" value="黑龙江" type="checkbox" id="RememberMe">黑龙江</label>
+                <label for="RememberMe"><input name="tags" value="内蒙古" type="checkbox" id="RememberMe">内蒙古</label>
+                <br>
+                <button type="submit" class="btn btn-success" style="margin-top: 20px; width: 500px;background-color:rgb(73, 105, 104);;">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

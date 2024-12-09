@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../static/iconmoon/fonts/icomoon.eot?twcoy3');
+  src:  url('../static/iconmoon/fonts/icomoon.eot?twcoy3#iefix') format('embedded-opentype'),
+    url('../static/iconmoon/fonts/icomoon.ttf?twcoy3') format('truetype'),
+    url('../static/iconmoon/fonts/icomoon.woff?twcoy3') format('woff'),
+    url('../static/iconmoon/fonts/icomoon.svg?twcoy3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-python:before {
+  content: "\e906";
+  color: #3776ab;
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-home2:before {
+  content: "\e901";
+}
+.icon-home3:before {
+  content: "\e902";
+}
+.icon-bubble:before {
+  content: "\e96b";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-eye:before {
+  content: "\e9ce";
+}
+.icon-man-woman:before {
+  content: "\e9de";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-checkmark:before {
+  content: "\ea10";
+}
+.icon-checkmark2:before {
+  content: "\ea11";
+}
+.icon-sina-weibo:before {
+  content: "\ea9a";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-tux:before {
+  content: "\eabd";
+}
+.icon-windows:before {
+  content: "\eac1";
+}
+.icon-windows8:before {
+  content: "\eac2";
+}
+
+body {
+    /* background: linear-gradient(to bottom, #b5c4b1, #c1cbd7, #e0cdcf); */
+    background: rgb(229, 230, 225);
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    /* 解决渐变背景没有全屏  */
+}
+
+nav {
+    height: 40px;
+    background-color: rgb(73, 105, 104);
+}
+
+nav>a:hover {
+    /* color: rgba(51, 122, 183); */
+    color: rgb(255, 170, 150);
+    /* font-weight: 700; */
+    text-decoration: none;
+    /* background-color: black */
+}
+
+nav>a {
+    float: left;
+    color: white;
+    text-decoration: none;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 30px;
+}
+
+.nav_last {
+    float: right;
+    color: white;
+    text-decoration: none;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 40px;
+    background-color:rgba(0, 0, 0, 0.1)
+}
+
+li {
+    float: left;
+    height: 20px;
+    width: 50px;
+    /* background-color: pink; */
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 40px;
+    margin-top: 23px;
+    border-radius: 5px;
+}
+
+li:hover {
+    background-color: black;
+}
+
+li>a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+li>a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.three {
+    float: left;
+    height: 20px;
+    width: 63px;
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 30px;
+    margin-top: 23px;
+}

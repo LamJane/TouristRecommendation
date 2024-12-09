@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <script type="text/javascript" src="../static/js/jquery-3.6.0.min.js"></script>
+    <title>首页</title>
+    <link rel="stylesheet" href="../static/js/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/project.css">
+    <style>
+        @font-face {
+  font-family: 'icomoon';
+  src:  url('../static/iconmoon/fonts/icomoon.eot?twcoy3');
+  src:  url('../static/iconmoon/fonts/icomoon.eot?twcoy3#iefix') format('embedded-opentype'),
+    url('../static/iconmoon/fonts/icomoon.ttf?twcoy3') format('truetype'),
+    url('../static/iconmoon/fonts/icomoon.woff?twcoy3') format('woff'),
+    url('../static/iconmoon/fonts/icomoon.svg?twcoy3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-python:before {
+  content: "\e906";
+  color: #3776ab;
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-home2:before {
+  content: "\e901";
+}
+.icon-home3:before {
+  content: "\e902";
+}
+.icon-bubble:before {
+  content: "\e96b";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-eye:before {
+  content: "\e9ce";
+}
+.icon-man-woman:before {
+  content: "\e9de";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-checkmark:before {
+  content: "\ea10";
+}
+.icon-checkmark2:before {
+  content: "\ea11";
+}
+.icon-sina-weibo:before {
+  content: "\ea9a";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-tux:before {
+  content: "\eabd";
+}
+.icon-windows:before {
+  content: "\eac1";
+}
+.icon-windows8:before {
+  content: "\eac2";
+}
+
+        .ct {
+            /* background: rgba(0, 0, 0, .1); */
+            height: 1650px;
+            width: 900px;
+            float: left;
+            /* margin-left: 10px; */
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .ct>h1,
+        .tuijian1>h1,
+        .tuijian2>h1 {
+            margin: 0;
+            display: inline-block;
+            height: 50px;
+            width: 300px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+            text-align: left;
+            line-height: 50px;
+            transform: rotateX(40deg);
+            -webkit-transform: rotateX(40deg);
+        }
+
+        .tuijian2>h1:hover,
+        .tuijian1>h1:hover,
+        .ct>h1:hover {
+            color: orange;
+        }
+
+        .ct_row {
+            float: left;
+            height: 300px;
+            width: 930px;
+            /* background-color: pink; */
+            margin-bottom: 20px;
+        }
+
+        .tuijian1,
+        .tuijian2 {
+            background: rgb(73, 105, 104);
+            height: 820px;
+            width: 290px;
+            float: left;
+            margin-left: 55px;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: -7px 7px 20px #888888;
+        }
+
+
+        .ct_row>div>a {
+            display: inline-block;
+            position: absolute;
+            margin-top: 160px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            width: 220px;
+            height: 40px;
+            border-bottom: white 2px solid;
+            text-decoration: none;
+            line-height: 30px;
+            text-align: center;
+            font-weight: 700;
+            color: white;
+            font-size: 20px;
+        }
+
+        .ct_row>div>a:hover {
+            color: orange;
+        }
+
+        .ct_row>div>p {
+            display: inline-block;
+            position: absolute;
+            padding-left: 5px;
+            margin-top: 200px;
+            margin-left: 10px;
+            color: white;
+            font-size: 9px;
+            height: 50px;
+            width: 200px;
+            line-height: 25px;
+            padding-right: 40px;
+        }
+
+        .ct_row>div>h5 {
+            display: inline-block;
+            position: absolute;
+            padding-left: 5px;
+            margin-top: 250px;
+            margin-left: 10px;
+            height: 47px;
+            width: 200px;
+            line-height: 18px;
+            font-size: 9px;
+            color: white;
+            padding-right: 40px;
+        }
+
+        .ct_row>.ct_left>.sale {
+            display: inline-block;
+            background-color: rgb(73, 105, 104);
+            color: white;
+            font-size: 20px;
+            {#font-weight: 700;#}
+            height: 50px;
+            width: 150px;
+            margin-top: 30px;
+            margin-left: 250px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .ct_row>.ct_left {
+            float: left;
+            height: 300px;
+            width: 440px;
+            margin-left: 25px;
+            border-radius: 5px;
+            box-shadow: 7px 7px 20px #888888;
+        }
+
+        .price {
+            display: inline-block;
+            width: 220px;
+            height: 40px;
+            margin-top: 160px;
+            margin-left: 220px;
+            line-height: 30px;
+            font-weight: 700;
+            padding-right: 15px;
+            font-size: 26px;
+            color: white;
+            text-align: right;
+            border-bottom: white 2px solid;
+            font-family: Arial Black, Gadget, sans-serif;
+            /* background-color: yellow; */
+        }
+
+        .tuijian2>div,
+        .tuijian1>div {
+            display: inline-block;
+            height: 38px;
+            border-bottom: 0.5px white solid;
+            width: 290px;
+            /* background-color: violet; */
+        }
+
+        .tuijian1>div>a,
+        .tuijian2>div>a {
+            display: inline-block;
+            height: 38px;
+            width: 210px;
+            /* background-color: yellow; */
+            text-align: left;
+            padding-left: 20px;
+            line-height: 38px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .tuijian1>div>a:hover,
+        .tuijian2>div>a:hover {
+            color: orange;
+        }
+
+        .tuijian1>div>span,
+        .tuijian2>div>span {
+            display: inline-block;
+            height: 38px;
+            width: 70px;
+            /* background-color: blue; */
+            /* text-align: center; */
+            text-align: center;
+            line-height: 38px;
+            color: white;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".yincang").hide();
+            $(".diqu").click(function () {
+                $(".yincang").slideToggle("slow");
+            });
+        });
+    </script>
+</head>
+
+<body>
+   <nav>
+        <a class=".icon-home3" href={% url 'shouye' %}
+               style="float: left; font-family: 'icomoon'; font-size: 20px;height: 40px;width: 70px;text-decoration: none;text-align: center;"></a>
+        {% if request.session.is_login %}
+            <a class="nav_last" style="background-color: transparent;padding-left: 15px;padding-right: 15px;" href={% url 'logout' %}>
+            注销
+            </a>
+            <h5 style=" float: right;padding-top: 5px;font-size: 5px;color: white;">你好,{{ request.session.user_name }} &nbsp; &nbsp;|</h5>
+            <a class="diqu" href="#" style="float: right;">地区选择</a>
+            <div class="yincang"  hidden
+            style="float: left; position: absolute; margin-top: 45px; margin-left: 800px; width: 400px;height: 400px; z-index: 1;background:  rgb(73, 105, 104);border-radius: 10px;">
+            <ul style="margin: 0;padding: 0;">
+                <li><a href={% url 'shanghai' %}>上海</a></li>
+                <li><a href={% url 'yunnan' %}>云南</a></li>
+                <li><a href="">北京</a></li>
+                <li><a href="">台湾</a></li>
+                <li><a href="">吉林</a></li>
+                <li><a href="">四川</a></li>
+                <li><a href="">天津</a></li>
+                <li><a href="">宁夏</a></li>
+                <li><a href="">安徽</a></li>
+                <li><a href="">山东</a></li>
+                <li><a href="">广东</a></li>
+                <li><a href="">广西</a></li>
+                <li><a href="">新疆</a></li>
+                <li><a href="">江苏</a></li>
+                <li><a href="">江西</a></li>
+                <li><a href="">河北</a></li>
+                <li><a href="">河南</a></li>
+                <li><a href="">浙江</a></li>
+                <li><a href="">海南</a></li>
+                <li><a href="">湖北</a></li>
+                <li><a href="">湖南</a></li>
+                <li><a href="">澳门</a></li>
+                <li><a href="">甘肃</a></li>
+                <li><a href="">福建</a></li>
+                <li><a href="">西藏</a></li>
+                <li><a href="">贵州</a></li>
+                <li><a href="">辽宁</a></li>
+                <li><a href="">重庆</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">陕西</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">青海</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">香港</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">山西</a></li>
+                <li class="three"><a href="">黑龙江</a></li>
+                <li class="three"><a href="">内蒙古</a></li>
+            </ul>
+        </div>
+            <a style="float: right;" href={% url 'data' %}>数据展示</a>
+            <a href={% url 'comment' %} style="float:right;">首页</a>
+        {% else %}
+            <a class="nav_last" href={% url 'login' %}>请先登录</a>
+            <a class="diqu" href="#" style="float: right;">地区选择</a>
+            <div class="yincang"  hidden
+            style="float: left; position: absolute; margin-top: 45px; margin-left: 800px; width: 400px;height: 400px; z-index: 1;background:  rgb(73, 105, 104);border-radius: 10px;">
+            <ul style="margin: 0;padding: 0;">
+                <li><a href={% url 'shanghai' %}>上海</a></li>
+                <li><a href={% url 'yunnan' %}>云南</a></li>
+                <li><a href="">北京</a></li>
+                <li><a href="">台湾</a></li>
+                <li><a href="">吉林</a></li>
+                <li><a href="">四川</a></li>
+                <li><a href="">天津</a></li>
+                <li><a href="">宁夏</a></li>
+                <li><a href="">安徽</a></li>
+                <li><a href="">山东</a></li>
+                <li><a href="">广东</a></li>
+                <li><a href="">广西</a></li>
+                <li><a href="">新疆</a></li>
+                <li><a href="">江苏</a></li>
+                <li><a href="">江西</a></li>
+                <li><a href="">河北</a></li>
+                <li><a href="">河南</a></li>
+                <li><a href="">浙江</a></li>
+                <li><a href="">海南</a></li>
+                <li><a href="">湖北</a></li>
+                <li><a href="">湖南</a></li>
+                <li><a href="">澳门</a></li>
+                <li><a href="">甘肃</a></li>
+                <li><a href="">福建</a></li>
+                <li><a href="">西藏</a></li>
+                <li><a href="">贵州</a></li>
+                <li><a href="">辽宁</a></li>
+                <li><a href="">重庆</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">陕西</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">青海</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">香港</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">山西</a></li>
+                <li class="three"><a href="">黑龙江</a></li>
+                <li class="three"><a href="">内蒙古</a></li>
+            </ul>
+        </div>
+            <a href={% url 'comment' %} style="float:right;">首页</a>
+        {% endif %}
+    </nav>
+     <div class="ct">
+        <h1 style="color: rgb(73, 105, 104);"> &nbsp;销量Top10推荐</h1>
+        <div class="ct_row">
+            <div class="ct_left" style="background: url('../static/imgs/迪士尼乐园.jpg') no-repeat center center;">
+                <a href={% url 'one' %}>{{ data1.name }}</a>
+                <p>{{ data1.introduce }}。</p>
+                <h5>{{ data1.specificLocation}}</h5>
+                <div class="price">{{ data1.price }}RMB</div>
+                <div class="sale">销量:{{ data1.salesVolume }}
+                </div>
+            </div>
+            <div class="ct_left" style="background: url('../static/imgs/上海海昌公园.jpg') no-repeat center center;background-size: cover;">
+                <a href={% url 'two' %}>{{ data2.name }}</a>
+                <p>{{ data2.introduce }}。</p>
+                <h5>{{ data2.specificLocation}}</h5>
+                <div class="price">{{ data2.price }}RMB</div>
+                <div class="sale">销量:{{ data2.salesVolume }}
+                </div>
+            </div>
+         </div>
+         <div class="ct_row">
+            <div class="ct_left" style="background: url('../static/imgs/故宫.jpg') no-repeat center center;background-size: cover;">
+                <a href="./xiangqingye/one.html">{{ data3.name }}</a>
+                <p>{{ data3.introduce }}。</p>
+                <h5>{{ data3.specificLocation}}</h5>
+                <div class="price">{{ data3.price }}RMB</div>
+                <div class="sale">销量:{{ data3.salesVolume }}
+                </div>
+            </div>
+            <div class="ct_left" style="background: url('../static/imgs/兵马俑.jpg') no-repeat center center;">
+                <a href="./xiangqingye/one.html">{{ data4.name }}</a>
+                <p>{{ data4.introduce }}。</p>
+                <h5>{{ data4.specificLocation}}</h5>
+                <div class="price">{{ data4.price }}RMB</div>
+                <div class="sale">销量:{{ data4.salesVolume }}
+                </div>
+            </div>
+         </div>
+         <div class="ct_row">
+            <div class="ct_left" style="background: url('../static/imgs/熊猫.jpg') no-repeat center center;">
+                <a href="./xiangqingye/one.html">{{ data5.name }}</a>
+                <p>{{ data5.introduce }}。</p>
+                <h5>{{ data5.specificLocation}}</h5>
+                <div class="price">{{ data5.price }}RMB</div>
+                <div class="sale">销量:{{ data5.salesVolume }}
+                </div>
+            </div>
+            <div class="ct_left" style="background: url('../static/imgs/颐和园.jpg') no-repeat center center;background-size: cover;">
+                <a href="./xiangqingye/one.html">{{ data6.name }}</a>
+                <p>{{ data6.introduce }}。</p>
+                <h5>{{ data6.specificLocation}}</h5>
+                <div class="price">{{ data6.price }}RMB</div>
+                <div class="sale">销量:{{ data6.salesVolume }}
+                </div>
+            </div>
+         </div>
+         <div class="ct_row">
+            <div class="ct_left" style="background: url('../static/imgs/长城.jpg') no-repeat center center;">
+                <a href="./xiangqingye/one.html">{{ data7.name }}</a>
+                <p>{{ data7.introduce }}。</p>
+                <h5>{{ data7.specificLocation}}</h5>
+                <div class="price">{{ data7.price }}RMB</div>
+                <div class="sale">销量:{{ data7.salesVolume }}
+                </div>
+            </div>
+            <div class="ct_left" style="background: url('../static/imgs/广州长隆.jpg') no-repeat center center;">
+                <a href="./xiangqingye/one.html">{{ data8.name }}</a>
+                <p>{{ data8.introduce }}。</p>
+                <h5>{{ data8.specificLocation}}</h5>
+                <div class="price">{{ data8.price }}RMB</div>
+                <div class="sale">销量:{{ data8.salesVolume }}
+                </div>
+            </div>
+         </div>
+         <div class="ct_row">
+            <div class="ct_left" style="background: url('../static/imgs/上海野生动物园.jpg') no-repeat center center;background-size: cover;">
+                <a href="./xiangqingye/one.html">{{ data9.name }}</a>
+                <p>{{ data9.introduce }}。</p>
+                <h5>{{ data9.specificLocation}}</h5>
+                <div class="price">{{ data9.price }}RMB</div>
+                <div class="sale">销量:{{ data9.salesVolume }}
+                </div>
+            </div>
+            <div class="ct_left" style="background: url('../static/imgs/珠海长隆世界.jpg') no-repeat center center;background-size: cover;">
+                <a href="./xiangqingye/one.html">{{ data10.name }}</a>
+                <p>{{ data10.introduce }}。</p>
+                <h5>{{ data10.specificLocation}}</h5>
+                <div class="price">{{ data10.price }}RMB</div>
+                <div class="sale">销量:{{ data10.salesVolume }}
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="tuijian1">
+        <h1>&nbsp地区推荐</h1>
+        {% for i in data_diqu %}
+        <div>
+            <a href="">{{ i.name }}</a>
+            <span>{{ i.cityname }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="tuijian2">
+        <h1>&nbsp免费景点推荐</h1>
+        {% for i in data %}
+        <div>
+            <a href="">{{ i.name }}</a>
+            <span>{{ i.cityname }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

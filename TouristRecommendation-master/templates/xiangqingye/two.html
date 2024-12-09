@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/js/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript" src="../static/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../static/css/project.css">
+    <title>详情页</title>
+    <style>
+        @font-face {
+  font-family: 'icomoon';
+  src:  url('../static/iconmoon/fonts/icomoon.eot?twcoy3');
+  src:  url('../static/iconmoon/fonts/icomoon.eot?twcoy3#iefix') format('embedded-opentype'),
+    url('../static/iconmoon/fonts/icomoon.ttf?twcoy3') format('truetype'),
+    url('../static/iconmoon/fonts/icomoon.woff?twcoy3') format('woff'),
+    url('../static/iconmoon/fonts/icomoon.svg?twcoy3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-python:before {
+  content: "\e906";
+  color: #3776ab;
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-home2:before {
+  content: "\e901";
+}
+.icon-home3:before {
+  content: "\e902";
+}
+.icon-bubble:before {
+  content: "\e96b";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-eye:before {
+  content: "\e9ce";
+}
+.icon-man-woman:before {
+  content: "\e9de";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-checkmark:before {
+  content: "\ea10";
+}
+.icon-checkmark2:before {
+  content: "\ea11";
+}
+.icon-sina-weibo:before {
+  content: "\ea9a";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-tux:before {
+  content: "\eabd";
+}
+.icon-windows:before {
+  content: "\eac1";
+}
+.icon-windows8:before {
+  content: "\eac2";
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".yincang").hide();
+            $(".diqu").click(function () {
+                $(".yincang").slideToggle("slow");
+            });
+        });
+    </script>
+    <style>
+        .gonglue {
+            display: inline-block;
+            height: 320px;
+            width: 300px;
+            background-color: rgb(73, 105, 104);
+            margin-top: 30px;
+            margin-left: 30px;
+            box-shadow: 7px 7px 20px #888888;
+            border-radius: 5px;
+        }
+
+        .gonglue>.biaoti {
+            width: 250px;
+            height: 50px;
+            border-bottom: solid 3px white;
+            color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 50px;
+        }
+
+        .gonglue>.gonglue_div {
+            display: inline-block;
+            height: 80px;
+            width: 300px;
+            color: white;
+            line-height: 80px;
+            text-align: center;
+            font-size: 10px;
+            border-top: 1px white solid;
+            /* background-color: black; */
+        }
+
+
+        .hotel {
+            display: inline-block;
+            position: absolute;
+            right: 50px;
+            top: 60px;
+            width: 860px;
+            height: 250px;
+        }
+
+        .hotel>.hotel_box,
+        .cangting>.hotel_box {
+            float: left;
+            width: 200px;
+            height: 250px;
+            margin-left: 15px;
+            box-shadow: 3px 3px 15px #888888;
+            transition: all .5s linear;
+        }
+
+        .hotel>.hotel_box:hover,
+        .cangting>.hotel_box:hover {
+            box-shadow: 7px 7px 20px #888888;
+            transform: translate(0, -5px);
+        }
+
+        .hotel>.hotel_box>img,
+        .cangting>.hotel_box>img {
+            float: left;
+            width: 200px;
+            height: 180px;
+        }
+
+        .hotel>.hotel_box>h4,
+        .cangting>.hotel_box>h4 {
+            float: left;
+            width: 200px;
+            height: 35px;
+            margin: 0;
+            color: rgb(255, 170, 150);
+            text-align: left;
+            padding-left: 20px;
+            line-height: 35px;
+            background-color: white;
+        }
+
+        .hotel>.hotel_box>a,
+        .cangting>.hotel_box>a {
+            float: left;
+            width: 200px;
+            height: 35px;
+            color: cadetblue;
+            border-bottom: 1px solid black;
+            text-align: center;
+            line-height: 35px;
+            background-color: white;
+        }
+
+
+        .cangting {
+            display: inline-block;
+            position: absolute;
+            right: 50px;
+            top: 340px;
+            width: 860px;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a class=".icon-home3" href={% url 'shouye' %}
+               style="float: left; font-family: 'icomoon'; font-size: 20px;height: 40px;width: 70px;text-decoration: none;text-align: center;"></a>
+        {% if request.session.is_login %}
+            <a class="nav_last" style="background-color: transparent;padding-left: 15px;padding-right: 15px;" href={% url 'logout' %}>
+            注销
+            </a>
+            <h5 style=" float: right;padding-top: 5px;font-size: 5px;color: white;">你好,{{ request.session.user_name }} &nbsp; &nbsp;|</h5>
+            <a class="diqu" href="#" style="float: right;">地区选择</a>
+            <div class="yincang"  hidden
+            style="float: left; position: absolute; margin-top: 45px; margin-left: 800px; width: 400px;height: 400px; z-index: 1;background:  rgb(73, 105, 104);border-radius: 10px;">
+            <ul style="margin: 0;padding: 0;">
+                <li><a href={% url 'shanghai' %}>上海</a></li>
+                <li><a href={% url 'yunnan' %}>云南</a></li>
+                <li><a href="">北京</a></li>
+                <li><a href="">台湾</a></li>
+                <li><a href="">吉林</a></li>
+                <li><a href="">四川</a></li>
+                <li><a href="">天津</a></li>
+                <li><a href="">宁夏</a></li>
+                <li><a href="">安徽</a></li>
+                <li><a href="">山东</a></li>
+                <li><a href="">广东</a></li>
+                <li><a href="">广西</a></li>
+                <li><a href="">新疆</a></li>
+                <li><a href="">江苏</a></li>
+                <li><a href="">江西</a></li>
+                <li><a href="">河北</a></li>
+                <li><a href="">河南</a></li>
+                <li><a href="">浙江</a></li>
+                <li><a href="">海南</a></li>
+                <li><a href="">湖北</a></li>
+                <li><a href="">湖南</a></li>
+                <li><a href="">澳门</a></li>
+                <li><a href="">甘肃</a></li>
+                <li><a href="">福建</a></li>
+                <li><a href="">西藏</a></li>
+                <li><a href="">贵州</a></li>
+                <li><a href="">辽宁</a></li>
+                <li><a href="">重庆</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">陕西</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">青海</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">香港</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">山西</a></li>
+                <li class="three"><a href="">黑龙江</a></li>
+                <li class="three"><a href="">内蒙古</a></li>
+            </ul>
+        </div>
+            <a style="float: right;" href={% url 'data' %}>数据展示</a>
+            <a href={% url 'comment' %} style="float:right;">首页</a>
+        {% else %}
+            <a class="nav_last" href={% url 'login' %}>请先登录</a>
+            <a class="diqu" href="#" style="float: right;">地区选择</a>
+            <div class="yincang"  hidden
+            style="float: left; position: absolute; margin-top: 45px; margin-left: 800px; width: 400px;height: 400px; z-index: 1;background:  rgb(73, 105, 104);border-radius: 10px;">
+            <ul style="margin: 0;padding: 0;">
+                <li><a href={% url 'shanghai' %}>上海</a></li>
+                <li><a href={% url 'yunnan' %}>云南</a></li>
+                <li><a href="">北京</a></li>
+                <li><a href="">台湾</a></li>
+                <li><a href="">吉林</a></li>
+                <li><a href="">四川</a></li>
+                <li><a href="">天津</a></li>
+                <li><a href="">宁夏</a></li>
+                <li><a href="">安徽</a></li>
+                <li><a href="">山东</a></li>
+                <li><a href="">广东</a></li>
+                <li><a href="">广西</a></li>
+                <li><a href="">新疆</a></li>
+                <li><a href="">江苏</a></li>
+                <li><a href="">江西</a></li>
+                <li><a href="">河北</a></li>
+                <li><a href="">河南</a></li>
+                <li><a href="">浙江</a></li>
+                <li><a href="">海南</a></li>
+                <li><a href="">湖北</a></li>
+                <li><a href="">湖南</a></li>
+                <li><a href="">澳门</a></li>
+                <li><a href="">甘肃</a></li>
+                <li><a href="">福建</a></li>
+                <li><a href="">西藏</a></li>
+                <li><a href="">贵州</a></li>
+                <li><a href="">辽宁</a></li>
+                <li><a href="">重庆</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">陕西</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">青海</a></li>
+                <li class="three"><a style="margin-left: 18px;" href="">香港</a></li>
+            </ul>
+            <ul>
+                <li class="three"><a style="margin-left: 18px;" href="">山西</a></li>
+                <li class="three"><a href="">黑龙江</a></li>
+                <li class="three"><a href="">内蒙古</a></li>
+            </ul>
+        </div>
+            <a href={% url 'comment' %} style="float:right;">首页</a>
+        {% endif %}
+    </nav>
+    <div class="gonglue">
+        <div class="biaoti">&nbsp上海海昌海洋公园攻略</div>
+        <a class="gonglue_div" href="">上海海昌海洋公园超全攻略🥳让你一生难忘</a>
+        <a class="gonglue_div" href="">玩转上海海昌海洋公园的超强攻略,亲身体验的血泪总结</a>
+        <a class="gonglue_div" href="">超详细上海海昌海洋公园，从下车开始教你抢先每一秒</a>
+    </div>
+    <img src="../static/imgs/上海海昌公园.jpg" style="position: absolute; bottom: 0; left: 0; margin-left: 110px;margin-bottom: 40px;
+    width: 150px;height: 150px;border-radius: 75px;box-shadow: 7px 7px 20px #888888;" alt="">
+    <div class="hotel">
+        <div class="hotel_box">
+            <img src="../static/imgs/上海陌上心宿.jpg" alt="">
+            <a href="">路德维希国王城堡餐厅</a>
+            <h4>299.00起
+            </h4>
+        </div>
+        <div class="hotel_box"> <img src="../static/imgs/上海浦东温德姆酒店.jpg" alt="">
+            <a href="">上海古象杉丽酒店</a>
+            <h4>299.00起
+            </h4>
+        </div>
+        <div class="hotel_box"> <img src="../static/imgs/云和夜泊酒店.jpg" alt="">
+            <a href="">上海吉臣维景酒店</a>
+            <h4>299.00起
+            </h4>
+        </div>
+        <div class="hotel_box"> <img src="../static/imgs/上海陆家嘴丽呈酒店.jpg" alt="">
+            <a href="">上海外滩璞硯酒店</a>
+            <h4>299.00起
+            </h4>
+        </div>
+    </div>
+    <div class="cangting">
+        <div class="hotel_box"> <img src="../static/imgs/御宝轩(益丰·外滩源店).jpg" alt="">
+            <a href="">土灶王农家菜</a>
+            <h4>299.00起
+            </h4>
+        </div>
+        <div class="hotel_box"> <img src="../static/imgs/海底捞火锅店.jpg" alt="">
+            <a href="">海底捞火锅店</a>
+            <h4>299.00起
+            </h4>
+        </div>
+        <div class="hotel_box"> <img src="../static/imgs/贡厨西餐厅.jpg" alt="">
+            <a href="">铂雅全日餐厅</a>
+            <h4>299.00起
+            </h4>
+        </div>
+        <div class="hotel_box"> <img src="../static/imgs/老正兴菜馆.jpg" alt="">
+            <a href="">老正兴菜馆</a>
+            <h4>299.00起
+            </h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
